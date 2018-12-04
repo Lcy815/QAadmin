@@ -1,0 +1,9 @@
+<uwsgi>
+	<socket>127.0.0.1:8997</socket><!-- Customize internal ports
+-->
+	<chdir>/home/myapp/sjk-qasystem/admin-api/QAadmin/qaproject</chdir><!-- project dir-->
+	<module>qaproject.wsgi</module><!-- wsgi start file-->
+	<processes>4</processes><!-- number of processes -->
+	<daemonize>uwsgi.log</daemonize><!-- log file dir -->
+	<pidfile>uwsgi.pid</pidfile><!-- uwsgi manage file dir -->
+</uwsgi>

@@ -24,7 +24,7 @@ SECRET_KEY = '8*j%i=j!572kel_xf4%o^o0_xae&aj+a0464!!th3^6q_=hx$r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['39.106.110.16', 'localhost','127.0.0.1']
 
 # Application definition
 
@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "qasystem",
         'USER': 'root',
-        'PASSWORD': "lou4871768.",
+        'PASSWORD': "Lou4871768.",
         'HOST': "127.0.0.1",
         'PORT': '3306',
     }
