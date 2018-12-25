@@ -1,5 +1,5 @@
 from django.db import models
-
+from rest_framework import serializers
 
 # Create your models here.
 class UserInfo(models.Model):
@@ -14,8 +14,11 @@ class UserInfo(models.Model):
     roles = models.IntegerField(choices=USER_TYPE)
     username = models.CharField(max_length=32)
     password = models.CharField(max_length=64)
-    introduction = models.CharField(max_length=64)
-    avatar = models.CharField(max_length=128)
+    introduction = models.CharField(max_length=64, blank=True)
+    avatar = models.CharField(max_length=128, blank=True)
+    email = models.EmailField(blank=True)
+
+
 
 
 class UserToken(models.Model):

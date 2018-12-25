@@ -147,5 +147,8 @@ USE_TZ = False
 # 设置全局认证方式
 #设置全局认证
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES":['api.utils.auth.Authentication',]
+    "DEFAULT_AUTHENTICATION_CLASSES":['api.utils.auth.Authentication',],
+    # 分页
+    "PAGE_SIZE": 3,
+    "DEFAULT_PAGINATION_CLASS": 'rest_framework.pagination.PageNumberPagination'
 }

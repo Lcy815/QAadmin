@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView, Request
 from django.http import JsonResponse, QueryDict
 from api.models import userModels
-
+from ..utils.parser import Parser
 
 # Create your views here.
 
@@ -104,17 +104,20 @@ class GetUserInfo(APIView):
             'avatar': user_info.avatar,
             'introduction': user_info.introduction,
         }
+        roles_list = []
         if user_info.roles == 1:
-            user_dic['roles'] = ['admin']
+            roles_list.append('admin')
         elif user_info.roles == 2:
-            user_dic['roles'] = ['editor']
+            roles_list.append('editor')
         else:
-            user_dic['roles'] = ['tester']
+            roles_list.append('tester')
+        user_dic['roles'] = roles_list
         ret['data'] = user_dic
         return JsonResponse(ret)
 
 
 class LoginOut(APIView):
+    authentication_classes = []
     def post(self, request):
         ret = {
             'code': 1000,
@@ -126,7 +129,7 @@ class LoginOut(APIView):
         if not obj:
             ret['code'] = 50008
             ret['msg'] = 'toekn无效'
-            return ret
+            return JsonResponse(ret)
         userModels.UserToken.objects.filter(token=token).update(token='')
         ret['code'] = 2000
         ret['msg'] = 'success'

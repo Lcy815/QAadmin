@@ -3,7 +3,7 @@
 # @File  : auth.py
 # @Author: Lcy
 # @Date  : 2018/11/30
-# @Desc  : 权认证
+# @Desc  : 用户认证
 
 from rest_framework.authentication import BaseAuthentication
 from ..models import UserToken

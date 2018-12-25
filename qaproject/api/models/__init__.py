@@ -7,3 +7,4 @@
 
 from .userModels import *
 from .caseModels import *
+from .projectModels import *
